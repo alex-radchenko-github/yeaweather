@@ -10,7 +10,7 @@ const SearchHistoryPage: React.FC = () => {
 	const history = useSelector((state: RootState) => state.history.searches);
 	const navigate = useNavigate();
 	
-	const filteredHistory = filter ? history.filter(entry => entry.city.toLowerCase().includes(filter.toLowerCase())) : history;
+	const filteredHistory = filter ? history.filter((entry: { city: string; }) => entry.city.toLowerCase().includes(filter.toLowerCase())) : history;
 	
 	const handleSelectCity = (city: string) => {
 		console.log(city)
@@ -33,7 +33,7 @@ const SearchHistoryPage: React.FC = () => {
 			/>
 			<button onClick={handleClearHistory}>Clear History</button>
 			<ul>
-				{filteredHistory.map((entry, index) => (
+				{filteredHistory.map((entry: any, index: any) => (
 					<li key={index} onClick={() => handleSelectCity(entry.city)}>
 						<h4>{entry.city}</h4>
 						<p>Temperature: {entry.data.current.temp_c}°C</p>

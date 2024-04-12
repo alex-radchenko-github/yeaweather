@@ -1,6 +1,8 @@
 import { RootState } from './store';
 
 interface StoredState {
+	
+	// @ts-ignore
 	history: RootState['history'];
 }
 

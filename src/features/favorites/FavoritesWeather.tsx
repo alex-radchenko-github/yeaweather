@@ -6,11 +6,10 @@ import {useGetWeatherByCityQuery} from "../weather/api/weatherApiSlice.ts";
 
 const FavoritesWeather: React.FC = () => {
 	const favorites = useSelector(selectFavorites);
-	
 	return (
 		<div>
 			<h3>Favorites</h3>
-			{favorites.map((city) => (
+			{favorites.map((city:any) => (
 				<WeatherDisplay key={city} city={city} />
 			))}
 		</div>
